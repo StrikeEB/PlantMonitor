@@ -14,7 +14,7 @@ Although not imperative for a small scale project with only a single data collec
 
 There are only two types of people who are good at orientation aka "not getting lost": the ones that have an innate sense of direction and the ones that can follow a map. Since I am the latter, I have sketched a high level project map for fellow map lovers:
 
-![Alt text](https://github.com/StrikeEB/PlantMonitor/blob/5ad135616ac6e33d87cc6a3f9e1d9f057a838443/Project%20map.jpg)
+![Alt text](https://github.com/StrikeEB/PlantMonitor/blob/main/Project%20map.jpg)
 
 ## Workstreams explained
 
