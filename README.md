@@ -12,3 +12,5 @@ Although not imperative for a small scale project with only a single data collec
 They say there are two types of people who are good at orientation: the ones that have a sense of direction and the ones that can follow a map. Since I am the latter, I have sketched a high level project map for you:
 
 ![Alt text](https://github.com/StrikeEB/PlantMonitor/blob/main/Project%20map.png)
+
+##
