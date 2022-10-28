@@ -24,11 +24,11 @@ There are only two types of people who are good at orientation aka "not getting 
 
 Workstreams 1 and 2 require you to set up your hardware: data collector node for Workstream 1 and data gateway for Workstream 2, connect it to a network and MQTT broker. Workstream 3 is about automating data feed from the broker to the database where it can be stored, and from the database to the insights platform where data can be analysed and insights visualised. To make the process worthwhile in cases where data is not gathered for research, it might be a good idea to present insights in a way that would call for an action. In this instance,  Grafana dashboard will suggest when the observed plant might need to be watered. 
 
-## Workstream 1 – how to get sense and share data about plants
+## Workstream 1 – how to sense and share data
 
 xxx
 
-## Workstream 2 – building a gateway for obtaining plant data 
+## Workstream 2 – building a gateway for obtaining data 
 
 xxx
 
