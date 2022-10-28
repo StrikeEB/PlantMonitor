@@ -29,7 +29,16 @@ Workstreams 1 and 2 require you to set up your hardware: data collector node for
 
 ## Workstream 1 – how to sense and share data
 
-xxx
+**Hardware**
+
+What you'll need to set up a basic data collector node?
+
+- Feather HUZZAH ESP8266
+- hh
+- hhh
+
+
+
 
 ## Workstream 2 – building a gateway for obtaining data 
 
