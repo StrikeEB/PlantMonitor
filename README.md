@@ -13,4 +13,7 @@ They say there are two types of people who are good at orientation: the ones tha
 
 ![Alt text](https://github.com/StrikeEB/PlantMonitor/blob/main/Project%20map.jpg)
 
-##
+## Workstreams explained
+
+Workstreams 1 and 2 require you to set up your hardware, connect it to a network and then deliver messages to the broker. Workstream 3 is about automating data feed from the broker to the database where it can be stored and then visualising insights.
+
