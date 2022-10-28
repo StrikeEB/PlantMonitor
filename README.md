@@ -25,7 +25,7 @@ There are only two types of people who are good at orientation aka "not getting 
 
 ![Alt text](https://github.com/StrikeEB/PlantMonitor/blob/24e39f4671f419e6fca6abf293e37a72f6e9d009/Project%20map.jpg)
 
-Workstreams 1 and 2 require you to set up your hardware: data collector node for Workstream 1 and data gateway for Workstream 2, connect it to a network and MQTT broker. Workstream 3 is about automating data feed from the broker to the database where it can be stored, and from the database to the insights platform where data can be analysed and insights visualised. To make the process worthwhile in cases where data is not gathered for research, it might be a good idea to present insights in a way that would call for an action. In this instance,  Grafana dashboard will suggest when the observed plant might need to be watered. 
+Workstreams 1 and 2 require you to set up your hardware: data collector node for Workstream 1 and data gateway for Workstream 2, connect it to a network and MQTT broker. Workstream 3 is about automating data feed from the broker to the database where it can be stored, and from the database to the platform where data can be analysed and insights visualised. To make the process worthwhile in cases where data is not gathered for research, it might be a good idea to present insights in a way that would call for an action. In this instance,  Grafana dashboard will suggest when the observed plant might need to be watered. 
 
 ## Workstream 1 – how to sense and share data
 
