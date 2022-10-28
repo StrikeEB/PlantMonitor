@@ -1,4 +1,4 @@
-# Plant Monitor
+# Plant Monitoring Project
 
 A simple and fun project to monitor plants using [Adafruit Feather HUZZAH ESP8266](https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/overview). The solution will provide quick and easy insights into plant health using time-series data on temperature, soil humidity and moisture.
 
