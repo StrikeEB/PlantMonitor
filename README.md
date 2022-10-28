@@ -1,6 +1,6 @@
-# Plant Monitoring Project
+# Plant Monitor
 
-A simple and fun project to monitor plants using [Adafruit Feather HUZZAH ESP8266](https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/overview). The solution will provide quick and easy insights into plant health using time-series data on temperature, soil humidity and moisture.
+A simple and fun project to monitor plants using [Adafruit Feather HUZZAH ESP8266](https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/overview). The solution will provide insights at a glance into plant health using time-series data on temperature, soil humidity and moisture.
 
 
 More importantly, this methodology provides a basic methodology and architecture that are flexible and could be advanced to provide further insights by adding sensors or scaled to inform about performance of multiple plants by adding devices.
@@ -19,4 +19,5 @@ There are only two types of people who are good at orientation aka "not getting 
 ## Workstreams explained
 
 Workstreams 1 and 2 require you to set up your hardware, connect it to a network and then deliver messages to the broker. Workstream 3 is about automating data feed from the broker to the database where it can be stored and then visualising insights.
+
 
