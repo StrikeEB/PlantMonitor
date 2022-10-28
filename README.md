@@ -1,6 +1,6 @@
 # Plant Monitor
 
-A simple and fun project to monitor plants using [Adafruit Feather HUZZAH ESP8266](https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/overview). The solution will provide -_insights at a glance_- into plant health using time-series data on temperature, soil humidity and moisture.
+A simple and fun project to monitor plants using [Adafruit Feather HUZZAH ESP8266](https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/overview). The solution will provide _insights at a glance_ into plant health using time-series data on temperature, soil humidity and moisture.
 This project focuses on sensing and insights visualisation, which could potentially call for an action. Control systems to water plants when soil humidity drops below a certain level could be the next potential iteration of the project. 
 
 The project is based around a single plant, but the methodology and solution architecture introduced are easily scalable. You can use this project as a basis to then add sensors for further insights, or scale by increasing the number of data collection nodes to inform about performance of multiple plants – even a whole farm!
@@ -22,7 +22,15 @@ There are only two types of people who are good at orientation aka "not getting 
 
 ![Alt text](https://github.com/StrikeEB/PlantMonitor/blob/24e39f4671f419e6fca6abf293e37a72f6e9d009/Project%20map.jpg)
 
-## Workstreams explained
+Workstreams 1 and 2 require you to set up your hardware: data collector node for Workstream 1 and data gateway for Workstream 2, connect it to a network and MQTT broker. Workstream 3 is about automating data feed from the broker to the database where it can be stored, and from the database to the insights platform where data can be analysed and insights visualised. To make the process worthwhile in cases where data is not gathered for research, it might be a good idea to present insights in a way that would call for an action. In this instance,  Grafana dashboard will suggest when the observed plant might need to be watered. 
 
-Workstreams 1 and 2 require you to set up your hardware, connect it to a network and enable . Workstream 3 is about automating data feed from the broker to the database where it can be stored and then visualising insights.
+## Workstream 1 – how to get sense and share data about plants
+
+xxx
+
+## Workstream 2 – building a gateway for obtaining plant data 
+
+xxx
+
+## Workstream 3 – setting up a database, analysing and visualising data 
 
