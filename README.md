@@ -88,7 +88,7 @@ Steps:
 ## Workstream 3 – setting up a database, analysing and visualising data
 
 You should have all prerequisites from Workstreams 1 and 2
-
+ 
 Steps: 
 1.	Transform data and set up your variables in InfluxDB
 2.	Visualise insights in Grafana
