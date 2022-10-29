@@ -4,6 +4,8 @@ A simple and fun project to monitor plants using [Adafruit Feather HUZZAH ESP826
 
 The solution will provide _insights at a glance_ into plant health using time-series data on temperature, soil humidity and moisture.
 
+**insert picture of dashboard**
+
 This project focuses on _sensing and insights visualisation_, which could potentially call for an action. _Control systems_ to automatically water plants when the need is identified by the insights provided could be the next potential iteration of the project. 
 
 The project is based around a single plant, but the methodology and solution architecture introduced are easily scalable. You can use this project as a basis to then add sensors for further insights, or scale by increasing the number of data collection nodes to inform about performance of multiple plants – even a whole farm!
@@ -29,20 +31,64 @@ Workstreams 1 and 2 require you to set up your hardware: data collector node for
 
 ## Workstream 1 – how to sense and share data
 
-**Hardware**
-
 What you'll need to set up a basic data collector node?
 
+**Hardware**
+
 - Feather HUZZAH ESP8266
-- hh
-- hhh
+- Humidity and temperature sensor. This project uses DHT22
+- 4 resistors – **how many watts each?**
+- Two nails
+- Two ~20cm 1core cables
+- Type C to USB cable 
 
+**Software**
 
+-Arduino IDE
+- MQTT Server
+- MQTT Explorer
+- CP2104 driver
+
+Steps:
+
+1.	First connect to Wi-Fi
+2.	Set up time as the microchip does not know it – every time it’s resent it will not know the time again so we need to tell the chip the time
+3.	Set up moisture value readings
+4.	Set up temperature value readings 
+5.	Publish data to MQTT server
 
 
 ## Workstream 2 – building a gateway for obtaining data 
 
-xxx
+Prerequisites:
 
-## Workstream 3 – setting up a database, analysing and visualising data 
+**Hardware**
+-	RPi 4
+-	USB-C power supply
+-	A microSD card
+-	A keyboard & mouse & TV screen or a laptop
 
+**Software**
+-	Raspberry Pi OS 64 bit
+-	Terminal for a Mac user and Putty for a Windows user
+-	WinSCP
+-	InfluxDB
+-	Telegraf
+-	Grafana
+
+Steps:
+
+1.	Set up your microSD card
+2.	Connect and start up RPi 4
+3.	Install InfluxDB
+4.	Install Telegraf
+5.	Install Grafana
+
+
+## Workstream 3 – setting up a database, analysing and visualising data
+
+You should have all prerequisites from Workstreams 1 and 2
+
+Steps: 
+1.	Transform data and set up your variables in InfluxDB
+2.	Visualise insights in Grafana
