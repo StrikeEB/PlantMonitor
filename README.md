@@ -10,7 +10,7 @@ This project focuses on _sensing and insights visualisation_, which could potent
 
 The project is based around a single plant, but the methodology and solution architecture introduced are easily scalable. You can use this project as a basis to then add sensors for further insights, or scale by increasing the number of data collection nodes to inform about performance of multiple plants – even a whole farm!
 
-_Disclaimer: this project is set up as part of the coursework for MSc Connected Environments at UCL module CASA0014 _
+_Disclaimer: this project is set up as part of the coursework for MSc Connected Environments at UCL module CASA0014_
 
 
 ## Project architecture
