@@ -5,10 +5,12 @@ A simple and fun project to monitor plants using [Adafruit Feather HUZZAH ESP826
 The solution will provide _insights at a glance_ into plant health using time-series data on temperature, soil humidity and moisture. 
 
 An example dashboard visualising plant monitor outputs:
+
 ![Alt text]( https://github.com/StrikeEB/PlantMonitor/blob/main/Images/Example%20Grafana%20Plant%20Monitor%20Dashboard_Credits%20to%20Ivana%20Huckova.jpg)
 _[Credits to Ivana Huckova]( https://grafana.com/blog/2021/03/08/how-i-built-a-monitoring-system-for-my-avocado-plant-with-arduino-and-grafana-cloud/)_
 
 This project focuses on _sensing and insights visualisation_. The project is based around a single plant, but the methodology and solution architecture introduced are easily scalable. You can use this project as a basis to then add sensors for further insights, or scale by increasing the number of data collection nodes to inform about performance of multiple plants – even a whole farm! At the end of this READ ME file I also provide some commentary how this simple prototype can be improved further by scaling the system horizontally and vertically.
+
 _Disclaimer: this project is set up as part of the coursework for MSc Connected Environments at UCL module CASA0014_
 
 
@@ -101,3 +103,10 @@ You should have all prerequisites from Workstreams 1 and 2
 Steps: 
 1.	Transform data and set up your variables in InfluxDB
 2.	Visualise insights in Grafana
+
+
+/* Explicitly set the ESP8266 to be a WiFi-client, otherwise, it by default,
+     would try to act as both a client and an access-point and could cause
+     network-issues with your other WiFi-devices on your WiFi-network. */
+
+TCP allows for transmission of information in both directions. This means that computer systems that communicate over TCP can send and receive data at the same time, similar to a telephone conversation. The protocol uses segments (packets) as the basic units of data transmission.
