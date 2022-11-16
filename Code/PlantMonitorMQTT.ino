@@ -1,4 +1,3 @@
-
 //STEP 1 Install libraries for Huzzah, moisture sensor (DHT), time, MQTT 
 
 #include <ESP8266WiFi.h> // Huzzah WiFi library
@@ -7,6 +6,8 @@
 #include <PubSubClient.h> //communication / MQTT library
 #include <DHT.h> // DHT defines debugs and types of sensors
 #include <DHT_U.h> // DHT temperature and humidity library
+
+//STEP 2 Define your sensors
 
 #define DHTTYPE DHT22   // DHT 22  (AM2302), AM2321
 
@@ -20,8 +21,14 @@ int sensorVCC = 13;
 int blueLED = 2;
 DHT dht(DHTPin, DHTTYPE);   // Initialize DHT sensor.
 
-// Wifi and MQTT
+// STEP 3 Create a secret library to store your WiFi and MQTT login details
+
+//Step 4 Include password library in the code
+
 #include "arduino_secrets.h" 
+
+// STEP 5 Connect to Wifi and MQTT
+
 /*
 **** please enter your sensitive data in the Secret tab/arduino_secrets.h
 **** using format below
@@ -30,6 +37,8 @@ DHT dht(DHTPin, DHTTYPE);   // Initialize DHT sensor.
 #define SECRET_MQTTUSER "user name - eg student"
 #define SECRET_MQTTPASS "password";
  */
+
+//STEP 5 Connect to WiFI and MQTT
 
 const char* ssid     = SECRET_SSID;
 const char* password = SECRET_PASS;
@@ -44,9 +53,11 @@ long lastMsg = 0;
 char msg[50];
 int value = 0;
 
-// Date and time
+// STEP 6 You can set time although it's likely that a date time series ready MQTT protocol will know the date of each data point sent from the data collection node
+
 Timezone GB;
 
+//STEP 7 void function to set up your inputs, outputs, start wifi, MQTT connection, etc.
 
 void setup() {
   // Set up LED to be controllable via broker
@@ -80,6 +91,9 @@ void setup() {
   client.setCallback(callback);
 
 }
+
+
+// STEP 8 set up readings 
 
 void loop() {
   // handler for receiving requests to webserver
@@ -127,6 +141,8 @@ void startWifi() {
   Serial.println(WiFi.localIP());
 }
 
+// optional sync date:
+
 void syncDate() {
   // get real date and time
   waitForSync();
@@ -135,6 +151,8 @@ void syncDate() {
   Serial.println("London time: " + GB.dateTime());
 
 }
+
+// STEP 9 read the data and store it in variable formet
 
 void sendMQTT() {
 
@@ -163,6 +181,8 @@ void sendMQTT() {
 
 }
 
+//code to check if message arrived
+
 void callback(char* topic, byte* payload, unsigned int length) {
   Serial.print("Message arrived [");
   Serial.print(topic);
@@ -181,6 +201,8 @@ void callback(char* topic, byte* payload, unsigned int length) {
   }
 
 }
+
+// code to show if connection to wifi and MQTT was successful and attempt to reconnect every 5 seconds
 
 void reconnect() {
   // Loop until we're reconnected
@@ -223,6 +245,9 @@ void handle_NotFound() {
   server.send(404, "text/plain", "Not found");
 }
 
+
+//STEP 10 push float and int variables to the HTML page in MQTT
+
 String SendHTML(float Temperaturestat, float Humiditystat, int Moisturestat) {
   String ptr = "<!DOCTYPE html> <html>\n";
   ptr += "<head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\">\n";
@@ -256,6 +281,9 @@ String SendHTML(float Temperaturestat, float Humiditystat, int Moisturestat) {
   ptr += "</html>\n";
   return ptr;
 }
+
+
+
 
 
 
