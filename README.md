@@ -1,5 +1,5 @@
 ##### Table of Contents  
-[Headers](#headers)  
+[Project Architecture](#project-architecture)  
 [Emphasis](#emphasis)  
 ...snip...    
 <a name="headers"/>
