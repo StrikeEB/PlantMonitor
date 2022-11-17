@@ -1,3 +1,12 @@
+### Table of Contents
+
+- [Plant Health Monitoring Project](#plant-health-monitoring-project)
+  * [Project architecture](#project-architecture)
+  * [Workstream 1 – how to sense and share data](#workstream-1---how-to-sense-and-share-data)
+  * [Workstream 2 – building a gateway for obtaining data](#workstream-2---building-a-gateway-for-obtaining-data)
+  * [Workstream 3 – setting up a database, analysing and visualising data](#workstream-3---setting-up-a-database--analysing-and-visualising-data)
+  * [How this prototype could be improved further?](#how-this-prototype-could-be-improved-further-)
+
 # Plant Health Monitoring Project
 
 A simple and fun project to monitor plants using [Adafruit Feather HUZZAH ESP8266](https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/overview). 
@@ -13,7 +22,7 @@ This project focuses on _sensing and insights visualisation_. It is based around
 
 At the end of this READ ME file I also provide some commentary how this simple prototype can be improved further by scaling the system horizontally and vertically.
 
-_Disclaimer: this project is set up as part of the coursework for MSc Connected Environments at UCL module CASA0014_
+_Disclaimer: this project is set up as part of the coursework for MSc Connected Environments module CASA0014 at UCL. A workshop followed can be found following this [link]( https://workshops.cetools.org/codelabs/CASA0014-2-Plant-Monitor/index.html?index=..%2F..casa0014#0)_
 
 
 ## Project architecture
@@ -55,7 +64,9 @@ What you'll need to set up a basic data collector node?
 - CP2104 driver
 
 **Wiring up the data collection node**
+
 Connect all parts using the schematic below:
+
 ![Alt text]( https://github.com/StrikeEB/PlantMonitor/blob/main/Images/Plant%20Monitor%20Schematic.jpg)
 _Credits to Prof Duncan Wilson_
 
@@ -66,6 +77,7 @@ It’s not required but good practice to add a box to protect the hardware from 
 Final product:
 
 ![Alt text]( https://github.com/StrikeEB/PlantMonitor/blob/main/Images/Sensor%202.png)
+
 
 
 **Steps to programme the data collection node for variable we want to monitor and automate data delivery to the MQTT protocol**
@@ -138,4 +150,13 @@ You should have all prerequisites from Workstreams 1 and 2. This workstream is a
 Steps: 
 1.	Transform data and set up your variables in InfluxDB
 2.	Visualise insights in Grafana
+
+
+## How this prototype could be improved further?
+
+Think about the plant monitor as a modular and scalable system:
+•	Horizontally: by adding more sensors to the data nodes or adding number of data notes and/or increase space and RAM or the server, and
+•	Vertically: by adding further functionalities such as control systems, business/financial analytics and ML models to detect patterns and predict outcomes if one or multiple variables in the environment change and direct control systems take action.
+Let me illustrate this using the plant monitor example. Assume that if the moisture level is below X, then your specific plant requires 100ml of water. Grafana is only good for insights visualisation, but if we’d have a platform that could not only subscribe to information from MQTT but also publish, we could automate the system to water the plant for us. When this both-ways platform receives a signal from the data collection node via MQTT that the moisture level is below X, it would send a signal also via MQTT to for example a solenoid water valve telling it to open up and release 100ml of water. This is a more useful scenario rather than just seeing that your plant is dying on Grafana dashboard when you’re holidaying in the sunny Costa del Sol. 
+To scale horizontally, you could add direct sunshine sensors or image recognition devices to detect any physical changes to plants, i.e., change of colour, weed presence, change of shapes due to insects, and of course make the system to take appropriate actions to combat each of these. 
 
