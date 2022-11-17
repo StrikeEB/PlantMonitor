@@ -38,7 +38,6 @@ DHT dht(DHTPin, DHTTYPE);   // Initialize DHT sensor.
 #define SECRET_MQTTPASS "password";
  */
 
-//STEP 5 Connect to WiFI and MQTT
 
 const char* ssid     = SECRET_SSID;
 const char* password = SECRET_PASS;
