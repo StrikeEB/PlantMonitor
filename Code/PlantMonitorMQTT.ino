@@ -27,7 +27,6 @@ DHT dht(DHTPin, DHTTYPE);   // Initialize DHT sensor.
 
 #include "arduino_secrets.h" 
 
-// STEP 5 Connect to Wifi and MQTT
 
 /*
 **** please enter your sensitive data in the Secret tab/arduino_secrets.h
@@ -52,11 +51,11 @@ long lastMsg = 0;
 char msg[50];
 int value = 0;
 
-// STEP 6 You can set time although it's likely that a date time series ready MQTT protocol will know the date of each data point sent from the data collection node
+// STEP 5 You can set time although it's likely that a date time series ready MQTT protocol will know the date of each data point sent from the data collection node
 
 Timezone GB;
 
-//STEP 7 void function to set up your inputs, outputs, start wifi, MQTT connection, etc.
+//STEP 6 void function to set up your inputs, outputs, start wifi, MQTT connection, etc.
 
 void setup() {
   // Set up LED to be controllable via broker
@@ -92,7 +91,7 @@ void setup() {
 }
 
 
-// STEP 8 set up readings 
+// STEP 7 set up readings 
 
 void loop() {
   // handler for receiving requests to webserver
@@ -151,7 +150,7 @@ void syncDate() {
 
 }
 
-// STEP 9 read the data and store it in variable formet
+// STEP 8 read the data and store it in variable formet
 
 void sendMQTT() {
 
@@ -245,7 +244,7 @@ void handle_NotFound() {
 }
 
 
-//STEP 10 push float and int variables to the HTML page in MQTT
+//STEP 9 push float and int variables to the HTML page in MQTT
 
 String SendHTML(float Temperaturestat, float Humiditystat, int Moisturestat) {
   String ptr = "<!DOCTYPE html> <html>\n";
