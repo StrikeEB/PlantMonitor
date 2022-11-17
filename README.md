@@ -1,6 +1,5 @@
 ### Table of Contents
 
-- [Plant Health Monitoring Project](#plant-health-monitoring-project)
   * [Project architecture](#project-architecture)
   * [Workstream 1 – how to sense and share data](#workstream-1---how-to-sense-and-share-data)
   * [Workstream 2 – building a gateway for obtaining data](#workstream-2---building-a-gateway-for-obtaining-data)
@@ -83,34 +82,30 @@ Final product:
 **Steps to programme the data collection node for variable we want to monitor and automate data delivery to the MQTT protocol**
 
 0.	Prep your Arduino IDE and plug in Huzzah to a USB port
--	Open Arduino IDE and ensure that you have selected the correct board and port
--	If you cannot find board in the board manager you will have to add it. Follow the steps shown on the [Adafruit site](https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/using-arduino-ide)
--	Test Arduino IDE by running the _blink_ example code on Huzzah
--	If the light is not flashing on the Huzzah microcontroller, you might need to install the CP2104 driver on your computer
+    -	Open Arduino IDE and ensure that you have selected the correct board and port
+    -	If you cannot find board in the board manager you will have to add it. Follow the steps shown on the [Adafruit site](https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/using-arduino-ide)
+    -	Test Arduino IDE by running the _blink_ example code on Huzzah
+    -	If the light is not flashing on the Huzzah microcontroller, you might need to install the CP2104 driver on your computer
 1.	Code starts here. First, install all relevant libraries:
--	https://github.com/StrikeEB/PlantMonitor/blob/910312e4d023f8044c1ccd05bdab170153dfe1b3/Code/PlantMonitorMQTT.ino#L4-L9
+    -	https://github.com/StrikeEB/PlantMonitor/blob/910312e4d023f8044c1ccd05bdab170153dfe1b3/Code/PlantMonitorMQTT.ino#L4-L9
 2.	Define your sensors
--	Link 
+    -	https://github.com/StrikeEB/PlantMonitor/blob/c3cefcc5a56379fdc9cb7f370f03f22d4be9d526/Code/PlantMonitorMQTT.ino#L12
 3.	Create an additional but secret library to store your WiFi and MQTT login details. You can add and store multiple network SSIDs and passwords there. 
--	Open a new Arduino file and use Arduino_Secrets library code as a basis (saved in the code foler)
--	Set your Wifi SSID, password and also MQTT login details:
-https://github.com/StrikeEB/PlantMonitor/blob/d00fbbdacc55f5e55aba53cf0002f41a3ab723ab/Code/arduino_secrets%20library.ino#L16-L19
--	Convert Arduino_secrets file from .ino format to .h format – I simply did it by renaming the file name.
--	Move Arduino_secrets.h file to the same folder as your main code!
+    -	You need to create a new Arduino file and use Arduino_Secrets library code as a basis (saved in the [code folder]( https://github.com/StrikeEB/PlantMonitor/blob/main/Code/arduino_secrets%20library.ino) )
+    -	Set your Wifi SSID, password and also MQTT login details:
+       https://github.com/StrikeEB/PlantMonitor/blob/d00fbbdacc55f5e55aba53cf0002f41a3ab723ab/Code/arduino_secrets%20library.ino#L16-L19
+    -	Convert Arduino_secrets file from .ino format to .h format – I simply did it by renaming the file name.
+    -	Move Arduino_secrets.h file to the same folder as your main code!
 4.	Include password library you just created in the code
--	link
-5.	Connect to Wi-Fi and MQTT
--	link
-6.	Set up time as the microchip does not know it – every time it’s resent it will not know the time again so we need to tell it the time. However, it's likely that a date time series ready MQTT protocol will know the date of each data point sent from the data collection node
--	link
-7.	Set your void setup() function to set up your inputs, outputs, start Wi-Fi, MQTT connection, etc.
--	link
-8.	Set up value readings in this case moisture, temperature and humidity
--	link
-9.	Read the data and store it in variable format
--	Link
-10.	Push float and int variables to the HTML page in MQTT
--	link
+    -	https://github.com/StrikeEB/PlantMonitor/blob/c3cefcc5a56379fdc9cb7f370f03f22d4be9d526/Code/PlantMonitorMQTT.ino#L28
+5.	Set up time as the microchip does not know it – every time it’s resent it will not know the time again so we need to tell it the time. However, it's likely that a date time series ready MQTT protocol will know the date of each data point sent from the data collection node
+    -	https://github.com/StrikeEB/PlantMonitor/blob/baeb7609922d1685b1aa951bc29baca3a813d168/Code/PlantMonitorMQTT.ino#L57
+    -	https://github.com/StrikeEB/PlantMonitor/blob/baeb7609922d1685b1aa951bc29baca3a813d168/Code/PlantMonitorMQTT.ino#L145-L152
+6.	Set your void setup() function to set up your inputs, outputs, start Wi-Fi, MQTT connection, etc.
+    -	https://github.com/StrikeEB/PlantMonitor/blob/916a79659a82055edb9dc9fc1ea564307fa7a032/Code/PlantMonitorMQTT.ino#L60-L91
+7.	Set up value readings in this case moisture, temperature and humidity
+8.	Read the data and store it in variable format
+9.	Push float and int variables to the HTML page in MQTT
 
 
 ## Workstream 2 – building a gateway for obtaining data 
@@ -129,7 +124,6 @@ What you’ll need?
 **Software**
 -	Raspberry Pi OS 64 bit
 -	Terminal for a Mac user and Putty for a Windows user
--	WinSCP
 -	InfluxDB
 -	Telegraf
 -	Grafana
@@ -155,8 +149,27 @@ Steps:
 ## How this prototype could be improved further?
 
 Think about the plant monitor as a modular and scalable system:
-•	Horizontally: by adding more sensors to the data nodes or adding number of data notes and/or increase space and RAM or the server, and
-•	Vertically: by adding further functionalities such as control systems, business/financial analytics and ML models to detect patterns and predict outcomes if one or multiple variables in the environment change and direct control systems take action.
+
+-	Horizontally: by adding more sensors to the data nodes or adding number of data notes and/or increase space and RAM or the server, and
+
+-	Vertically: by adding further functionalities such as control systems, business/financial analytics and ML models to detect patterns and predict outcomes if one or multiple variables in the environment change and direct control systems take action.
+
 Let me illustrate this using the plant monitor example. Assume that if the moisture level is below X, then your specific plant requires 100ml of water. Grafana is only good for insights visualisation, but if we’d have a platform that could not only subscribe to information from MQTT but also publish, we could automate the system to water the plant for us. When this both-ways platform receives a signal from the data collection node via MQTT that the moisture level is below X, it would send a signal also via MQTT to for example a solenoid water valve telling it to open up and release 100ml of water. This is a more useful scenario rather than just seeing that your plant is dying on Grafana dashboard when you’re holidaying in the sunny Costa del Sol. 
+
 To scale horizontally, you could add direct sunshine sensors or image recognition devices to detect any physical changes to plants, i.e., change of colour, weed presence, change of shapes due to insects, and of course make the system to take appropriate actions to combat each of these. 
+
+![Alt text]( https://github.com/StrikeEB/PlantMonitor/blob/main/Images/A%20prototype%20architecture%20for%20sensing%20and%20acting.jpg)
+
+Next level of vertical scaling is becoming business smart although it could be also applied to the sensing-only system (and that’s unfortunately still the most common business practice). Imagine you have a farm. You can use vertically and horizontally scaled plant monitor system to optimise your harvest (or operations). But as a businessperson, you’ll also be thinking how to optimise your business (or finance). To do so, you can combine your sensor data with further information such as financial statements, weather forecast and start linking plant performance to business outcome, optimise costs and revenue.
+
+![Alt text]( https://github.com/StrikeEB/PlantMonitor/blob/main/Images/A%20prototype%20architecture%20for%20sensing%20and%20acting%2C%20business%20smart%20system.jpg )
+
+Consider further that as a farmer you have limited resources such as water that are being further depleted by climate change. All your resources have competing uses (e.g., water plants vs feed animals) and you’re also impacted by regulations for pesticides and herbicides. A smart system would go beyond executing pre-set commands. Machine learning/AI models connected to the plant monitoring system with external data such as weather forecast, financial data and status of competing resource uses could detect patterns and offer improvements to operations, cost, EBITDA and solve resource issues. In other words, a smart system would have evolving constraints therefore being able to effectively address evolving challenges as and when they come.
+
+![Alt text]( https://github.com/StrikeEB/PlantMonitor/blob/main/Images/A%20smart%20prototype%20architecture%20for%20sensing%20and%20acting.jpg )
+
+
+
+
+
 
